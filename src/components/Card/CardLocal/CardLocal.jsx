@@ -1,12 +1,14 @@
 import { LocalStyle } from "./LocalStyle"
 import { format } from "date-fns"
 
-export function CardLocal({ onClick, dono, motor, data }) {
+export function CardLocal({ onClick, produto, codigo,quantidade , valor , data }) {
    return (
         <LocalStyle onClick={onClick}>
-            <span>{dono}</span>
-            <span>{motor}</span>
-            <span>{format(data, " dd/MM/yyyy ")}</span>
+            <span>{produto}</span>
+            <span>{codigo}</span>
+            <span>{quantidade}</span>
+            <span>{valor}</span>
+            {/* <span>{format(data, " dd/MM/yyyy ")}</span> */}
         </LocalStyle>
     )
 }

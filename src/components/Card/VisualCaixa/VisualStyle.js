@@ -74,8 +74,8 @@ export const VisualSttyle = styled.dialog`
     }
     
 
-     .excluir{
-         background-color:#AD130C;
+     .editar{
+         background-color:#CDDA38;
          display: grid;
          border-radius: 10px;
          top: 10px;

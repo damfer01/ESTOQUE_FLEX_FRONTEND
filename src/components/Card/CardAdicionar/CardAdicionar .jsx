@@ -15,12 +15,15 @@ export function CardAdicionar({ showCard, onClose }) {
     } = useStore();
 
     const [codigo, setcodigo] = useState([]);
+    const [valor, setValor] = useState([]);
 
 
     const handleAddPeca = () => {
         setcodigo((value) => [...value, value.length])
     };
 
+
+    
     const {
         handleSubmit,
         reset,
@@ -33,7 +36,7 @@ export function CardAdicionar({ showCard, onClose }) {
         resolver: yupResolver(CaixaSchema),
         mode: 'onChange',
     });
-
+    
     const onSubmit = async (_data) => {
         const {
             produto,
@@ -43,7 +46,7 @@ export function CardAdicionar({ showCard, onClose }) {
             descricao,
             data,
         } = _data;
-
+        
         const { success, result } = await registerCaixa(user.token,
             produto,
             quantidade,
@@ -52,20 +55,41 @@ export function CardAdicionar({ showCard, onClose }) {
             descricao,
             data,);
 
-        if (success) {
+            if (success) {
 
-            onClose();
+                onClose();
         }
         console.log(result);
     };
 
     useEffect(() => {
         if (!showCard) {
-
+            
             setcodigo([])
             reset();
+            setValor([valor])
+            
         }
     }, [showCard]);
+    
+  
+ 
+   const Alerta =( quantidade ) => {
+       quantidade = Quantidade 
+
+       if ( quantidade < Alerta){
+        return (
+             
+                    alert(` O alerta e maior que a qauntidade que e }`) 
+                         
+            );
+       }
+
+   };
+   const Quantidade = ( ) => {
+    
+   }
+
 
     return showCard ? (
         <CardSttyle open  >
@@ -75,8 +99,10 @@ export function CardAdicionar({ showCard, onClose }) {
                 <button id='excluir' onClick={onClose}><X /></button>
 
                 <input className='AdicionarProduto' type="text" placeholder=" Produto  Obrigatorio" {...register('produto')} />
-                <input className='AdicionarCodigo' type="text" placeholder="Codigo:  Obrigatorio" {...register('codigo')} />
-                <button className='Adicionar-referencia' onClick={handleAddPeca}>+</button>
+
+
+                Codigo:  Obrigatorio <button className='Adicionar-referencia' onClick={handleAddPeca}>+</button>
+
                 {
                     codigo.map((cod, index) => (
                         <div key={index}>
@@ -85,13 +111,22 @@ export function CardAdicionar({ showCard, onClose }) {
                     ))
                 }
 
-                <input className='quantidade' type="text" placeholder=" quantidade:  Obrigatorio" {...register('quantidade')} />
-                <input className='compra' type="text" placeholder=" compra:  Obrigatorio" {...register('compra')} />
-                <input className='venda' type="text" placeholder=" venda:  Obrigatorio" {...register('venda')} />
+                <input className='quantidade' type="number" id={Quantidade}  placeholder=" quantidade:  Obrigatorio" {...register('quantidade')} />
 
-                <input className='alerta' type="text" placeholder=" Alerta:  Obrigatorio" />
+                {
+                    valor.map((cod, index) => (
+                        <div  key={index}>
+                            <input className='compra' type="number" placeholder=" compra:  Obrigatorio " {...register(`valor[${cod}].compra`)} />
+                            <input className='venda' type="number" placeholder="venda:  Obrigatorio" {...register(`valor[${cod}].venda`)} />
+                        </div>
+                    ))
+                }
 
-                <input className='descricao' placeholder='descrição' type='text'  {...register('descricao')} />
+                <input className='alerta'id={Alerta}  type="number" placeholder=" Alerta:  Obrigatorio" />
+
+                DESCRIÇÃO DE PRODUTO :
+
+                <input className='descricao' type='text'  {...register('descricao')} />
 
                 <button disabled={!isValid} type='submit' className="comfirmar">confirma</button>
             </form>

@@ -12,7 +12,7 @@ export function VisualCaixa({caixa, onClose}) {
     user,
   } = useStore();
     
-         async function deleteCaixas() {
+         async function updateProduto() {
              try {
                await api.update(`/produto/${caixa._id}`, {
                 headers: {
@@ -44,23 +44,21 @@ export function VisualCaixa({caixa, onClose}) {
                 
                 <button onClick={onClose}><X /></button>
                    <div> 
-                <span>{caixa.dono}</span>
-                <span>{caixa.marca}</span>
-                <span>{caixa.motor}</span>
-                <span>{format(caixa.data,"dd/MM/yyyy")}</span>
+                <span>{caixa.produto}</span>
+                <span>{caixa.codigo}</span>
+                <span>{caixa.referencia}</span>
                  </div>
-                    <span className="pecas">peças</span>
+                    <span className="pecas">quantidade</span>
                 {
-                    caixa.pecas.map((peca) => (
-                        <div>
-                        <span className="foco">{peca.nome}</span>
-                        <span>{peca.codigo}</span>
-                        <span>{peca.medida}</span>
+                  caixa.codigo.map((cod) => (
+                    <div>
+                        <span className="foco">{cod.referencia}</span>
                         </div>
                     ))
-                }
+                  }
+                  <span>{format(caixa.data,"dd/MM/yyyy")}</span>
 
-                <button className="excluir" onClick={deleteCaixas}>Excluir</button>
+                <button className="editar" onClick={updateProduto}>editar</button>
                    
         </VisualSttyle>
     ) : <></>

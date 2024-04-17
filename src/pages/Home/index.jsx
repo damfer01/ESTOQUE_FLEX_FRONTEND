@@ -10,6 +10,7 @@ import { VisualCaixa } from "../../components/Card/VisualCaixa/VisualCaixa";
 import { PesquisaStyle } from "../../components/BarraDePesquisa/Pesquisa";
 import { useStore } from "../../store";
 import Patrocinio from "../../components/ButtonPatrocinio/Patrocinio";
+import { Type } from "../../components/Type";
 
 
 
@@ -73,8 +74,8 @@ export default function Home() {
   return (
     <Section>
       <SelectGridView>
-        
-        <Patrocinio/>
+
+        <Patrocinio />
 
         <Button
           type="submit"
@@ -82,33 +83,45 @@ export default function Home() {
         >
           adicionar +
         </Button>
-      
+
+        <Type>
+          produto
+          <input type="radio" id="produto" name="produto" value="produto"></input>
+          
+          descrição
+          <input type="radio" id="descricao" name="descricao" value="descricao"></input>
+
+          codigo
+          <input type="radio" id="codigo" name="codigo" value="codigo"></input>
+
+
+        </Type>
 
         <PesquisaStyle >
-          <input placeholder='Busque : ' onChange={(e) => setSearch(e.target.value)}></input>
+          <input placeholder='Busque :' onChange={(e) => setSearch(e.target.value)}></input>
         </PesquisaStyle >
 
-        
+
 
       </SelectGridView>
 
 
-        VISUAL PRODUTOS :  {/* DAQUI PRA BAIXO VAI SER O VISUAL DOS PROSDUTOS  */}
-       
+      VISUAL PRODUTOS :  {/* DAQUI PRA BAIXO VAI SER O VISUAL DOS PROSDUTOS  */}
+
       <GridView  >
         {
-          caixas.filter(caixa => caixa.dono.toLocaleLowerCase().includes(search.toLocaleLowerCase())).map((caixa) => (
+          caixas.filter(caixa => caixa.produto.toLocaleLowerCase().includes(search.toLocaleLowerCase())).map((caixa) => (
             <CardLocal onClick={() => setCaixa(caixa)}
 
               {...caixa}
               key={caixa._id}
-            />
+            />  /* AQUI VAI APARECE OS PRODUTOS  */
           ))
         }
-
+       
       </GridView>
 
-       <VisualCaixa caixa={caixa} onClose={() => setCaixa(null)} />  {/* aqui vai ser o CARD_EDITAR */} 
+      <VisualCaixa caixa={caixa} onClose={() => setCaixa(null)} />  {/* aqui vai ser o CARD_EDITAR */}
 
 
       <CardAdicionar showCard={showCard} onClose={() => setShowCard(false)} />   {/* aqui vai ser o CARD_ADICIONAR */}
