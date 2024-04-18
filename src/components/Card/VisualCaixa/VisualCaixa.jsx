@@ -5,6 +5,7 @@ import { VisualSttyle } from "./VisualStyle";
 
 import { X } from 'lucide-react';
 import { useStore } from "../../../store";
+import { jsx } from "react/jsx-runtime";
 
 
 export function VisualCaixa({caixa, onClose}) { 
@@ -40,23 +41,31 @@ export function VisualCaixa({caixa, onClose}) {
           }
 
     return caixa !== null ? (
-        <VisualSttyle open >
+      
+        <VisualSttyle open   >
                 
                 <button onClick={onClose}><X /></button>
                    <div> 
                 <span>{caixa.produto}</span>
-                <span>{caixa.codigo}</span>
-                <span>{caixa.referencia}</span>
-                 </div>
-                    <span className="pecas">quantidade</span>
+                 </div >
+             <span className="pecas">{caixa.quantidade}</span>
                 {
-                  caixa.codigo.map((cod) => (
-                    <div>
+                  caixa.codigo.map((cod , index) => (
+                    <div   >
                         <span className="foco">{cod.referencia}</span>
                         </div>
                     ))
                   }
+                {
+                  caixa.valor.map((cod , index ) => (
+                    <div   >
+                        <span className="foco">{cod.compra}</span>
+                        <span className="foco">{cod.venda}</span>
+                        </div>
+                    ))
+                  }
                   <span>{format(caixa.data,"dd/MM/yyyy")}</span>
+                  <span className="pecas">{caixa.descricao}</span>
 
                 <button className="editar" onClick={updateProduto}>editar</button>
                    

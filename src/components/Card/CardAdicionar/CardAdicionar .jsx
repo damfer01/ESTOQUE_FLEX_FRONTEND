@@ -15,7 +15,7 @@ export function CardAdicionar({ showCard, onClose }) {
     } = useStore();
 
     const [codigo, setcodigo] = useState([]);
-    const [valor, setValor] = useState([]);
+    const [valor, setValor] = useState([true]);
 
 
     const handleAddPeca = () => {
@@ -66,29 +66,27 @@ export function CardAdicionar({ showCard, onClose }) {
         if (!showCard) {
             
             setcodigo([])
-            reset();
             setValor([valor])
+            reset();
             
         }
     }, [showCard]);
     
   
  
-   const Alerta =( quantidade ) => {
-       quantidade = Quantidade 
-
-       if ( quantidade < Alerta){
-        return (
-             
-                    alert(` O alerta e maior que a qauntidade que e }`) 
-                         
-            );
-       }
+   const Alerta  =( ) => {
+       
 
    };
    const Quantidade = ( ) => {
     
    }
+
+   if( Alerta > Quantidade){
+    return alert("Alerta e maior que a quantidade ")
+   }
+
+
 
 
     return showCard ? (
@@ -106,7 +104,7 @@ export function CardAdicionar({ showCard, onClose }) {
                 {
                     codigo.map((cod, index) => (
                         <div key={index}>
-                            <input className='Referencia' type="text" placeholder="referencia : " {...register(`codigo[${cod}].referencia`)} />
+                            <input className='Referencia' type="text" placeholder="codigo : " {...register(`codigo[${cod}].referencia`)} />
                         </div>
                     ))
                 }
@@ -115,7 +113,7 @@ export function CardAdicionar({ showCard, onClose }) {
 
                 {
                     valor.map((cod, index) => (
-                        <div  key={index}>
+                        <div >
                             <input className='compra' type="number" placeholder=" compra:  Obrigatorio " {...register(`valor[${cod}].compra`)} />
                             <input className='venda' type="number" placeholder="venda:  Obrigatorio" {...register(`valor[${cod}].venda`)} />
                         </div>

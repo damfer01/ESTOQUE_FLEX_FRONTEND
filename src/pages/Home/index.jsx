@@ -26,6 +26,8 @@ export default function Home() {
 
   const [search, setSearch] = useState('')
 
+  const [pesquisar, setPesquisar] = useState('')
+
   async function loadCaixas() {
     try {
       const { data: { result } } = await api.get('/produto', {
@@ -68,6 +70,7 @@ export default function Home() {
   function handleSearch(event) {
     const query = event.target.value
 
+    setPesquisar(query)
     setSearch(query)
   }
 
@@ -84,18 +87,6 @@ export default function Home() {
           adicionar +
         </Button>
 
-        <Type>
-          produto
-          <input type="radio" id="produto" name="produto" value="produto"></input>
-          
-          descrição
-          <input type="radio" id="descricao" name="descricao" value="descricao"></input>
-
-          codigo
-          <input type="radio" id="codigo" name="codigo" value="codigo"></input>
-
-
-        </Type>
 
         <PesquisaStyle >
           <input placeholder='Busque :' onChange={(e) => setSearch(e.target.value)}></input>
@@ -110,14 +101,17 @@ export default function Home() {
 
       <GridView  >
         {
-          caixas.filter(caixa => caixa.produto.toLocaleLowerCase().includes(search.toLocaleLowerCase())).map((caixa) => (
+          caixas.filter(caixa => caixa.produto.toLocaleLowerCase().includes(search.toLocaleLowerCase()) || 
+          caixa.descricao.toLocaleLowerCase().includes(search.toLocaleLowerCase()) ||
+          caixa.codigo.referencia.toLocaleLowerCase().includes(search.toLowerCase()) 
+          ).map((caixa) => (
             <CardLocal onClick={() => setCaixa(caixa)}
 
               {...caixa}
               key={caixa._id}
             />  /* AQUI VAI APARECE OS PRODUTOS  */
           ))
-        }
+        } 
        
       </GridView>
 
