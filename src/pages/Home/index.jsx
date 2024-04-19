@@ -11,6 +11,7 @@ import { PesquisaStyle } from "../../components/BarraDePesquisa/Pesquisa";
 import { useStore } from "../../store";
 import Patrocinio from "../../components/ButtonPatrocinio/Patrocinio";
 import { Type } from "../../components/Type";
+import { ArraySchema } from "yup";
 
 
 
@@ -26,7 +27,7 @@ export default function Home() {
 
   const [search, setSearch] = useState('')
 
-  const [pesquisar, setPesquisar] = useState('')
+  const [pesquisar, setPesquisar] = useState([])
 
   async function loadCaixas() {
     try {
@@ -101,9 +102,12 @@ export default function Home() {
 
       <GridView  >
         {
-          caixas.filter(caixa => caixa.produto.toLocaleLowerCase().includes(search.toLocaleLowerCase()) || 
-          caixa.descricao.toLocaleLowerCase().includes(search.toLocaleLowerCase()) ||
-          caixa.codigo.referencia.toLocaleLowerCase().includes(search.toLowerCase()) 
+          caixas.filter(
+            caixa =>
+            caixa.produto.toLocaleLowerCase().includes(search.toLocaleLowerCase()) || 
+            caixa.descricao.toLocaleLowerCase().includes(search.toLocaleLowerCase()) ||
+          caixa.codigo.toLocaleLowerCase().includes(search.toLocaleLowerCase()) ||
+          caixa.data.toLocaleLowerCase().includes(search.toLocaleLowerCase()) 
           ).map((caixa) => (
             <CardLocal onClick={() => setCaixa(caixa)}
 

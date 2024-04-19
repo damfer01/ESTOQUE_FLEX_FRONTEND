@@ -6,16 +6,58 @@ import { VisualSttyle } from "./VisualStyle";
 import { X } from 'lucide-react';
 import { useStore } from "../../../store";
 import { jsx } from "react/jsx-runtime";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { useForm } from "react-hook-form";
+import CaixaSchema from "../../../schema/Caixa/CaixaSchema";
 
 
 export function VisualCaixa({caixa, onClose}) { 
   const {
+    handleSubmit,
+    reset,
+    register,
+    formState: {
+        isValid,
+    }
+  }= useForm({
+    resolver: yupResolver(CaixaSchema),
+    mode: 'onChange',
+})
+
+  const {
     user,
   } = useStore();
     
+         async function deleteProduto() {
+             try {
+               await api.delete(`/produto/${caixa._id}`, {
+                headers: {
+                  Authorization: `Bearer ${user.token}`,
+                }
+               });
+               
+
+               onClose();
+             } catch (err) {
+              if (err.response) {
+                const { data } = err.response;
+        
+               return {
+                  success: data.success,
+                   message: data.message,
+             };
+            } else {
+              return {
+              success: false,
+                message: "falha ao se comunicar com o servidor !!",
+             }
+            }
+           }
+          }
+
          async function updateProduto() {
              try {
-               await api.update(`/produto/${caixa._id}`, {
+               await api.put(`/produto/${caixa._id}`, {
                 headers: {
                   Authorization: `Bearer ${user.token}`,
                 }
@@ -46,29 +88,31 @@ export function VisualCaixa({caixa, onClose}) {
                 
                 <button onClick={onClose}><X /></button>
                    <div> 
-                <span>{caixa.produto}</span>
+                <span>produto :{caixa.produto}</span>
                  </div >
-             <span className="pecas">{caixa.quantidade}</span>
-                {
+             <span className="pecas">quantidade :{caixa.quantidade}</span>
+             {
                   caixa.codigo.map((cod , index) => (
                     <div   >
-                        <span className="foco">{cod.referencia}</span>
-                        </div>
-                    ))
-                  }
+                        <span className="codigo">codigo :{ cod.codigo}</span>
+                    </div>
+                  ))
+                } 
                 {
                   caixa.valor.map((cod , index ) => (
-                    <div   >
-                        <span className="foco">{cod.compra}</span>
-                        <span className="foco">{cod.venda}</span>
+                    <div  key={index}  >
+                        <span className="foco">compra :{ cod.compra}</span>
+                        <span className="foco">venda :{cod.venda}</span>
                         </div>
                     ))
                   }
-                  <span>{format(caixa.data,"dd/MM/yyyy")}</span>
-                  <span className="pecas">{caixa.descricao}</span>
+                  <span className="data">{format(caixa.data,"dd/MM/yyyy")}</span>
+                  <span className="pecas">descricao :{caixa.descricao}</span>
 
-                <button className="editar" onClick={updateProduto}>editar</button>
-                   
+              <button className="editar" onClick={updateProduto}>editar</button> 
+
+                <button id="excluir" onClick={deleteProduto}>excluir</button>
+                       
         </VisualSttyle>
     ) : <></>
 }

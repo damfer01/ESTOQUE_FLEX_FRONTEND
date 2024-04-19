@@ -14,7 +14,7 @@ export const VisualSttyle = styled.dialog`
     width: 100%;
     height: 100%;
     border: none;
-    color: #FFF;
+    color: #000;
     font-size: 24px;
     font-weight: 600;
     transition: all .2s;
@@ -39,8 +39,24 @@ export const VisualSttyle = styled.dialog`
         }
     }
 
+     .data{
+        background-color:#D9D9D9;
+        display: flex;
+        padding: 16px;
+         font-size: 16px;
+        border-radius:10px;
+        border: 1px solid #000;
+        border-color: rgb(147 197 253);
+         margin: 2px;
+        align-items: center;
+        border-color: #000;
+        justify-content: center ;
+        width:  240px;
+        height: 34PX;
+     }
+
      .pecas{
-        background-color: rgb(96 165 250);
+        background-color:#D9D9D9;
         display: flex;
         padding: 16px;
          font-size: 16px;
@@ -57,7 +73,8 @@ export const VisualSttyle = styled.dialog`
     }
 
      div > .foco{
-        background-color:#5389A0;
+        margin: 10px;
+        background-color:#D9D9D9;
     }
 
     button {
@@ -70,6 +87,19 @@ export const VisualSttyle = styled.dialog`
        border: 1px solid #000;
        border-radius: 10px;
        
+       
+    }
+
+    #excluir{
+        display: grid;
+        align-items: center;
+      justify-content: center;
+      padding: 8PX;
+      color: #FFF;
+       background:#AD130C;
+       border-color: rgb(147 197 253);
+       border: 1px solid #000;
+       border-radius: 10px;
        
     }
     
