@@ -17,7 +17,16 @@ export const CardSttyle = styled.dialog`
     background-color: #00000044;
 
 
-
+    .scroll{
+        display: flex;
+        flex-direction: column;
+        align-items: left;
+        justify-content: left ;
+        border: none;
+        font-size: 24px;
+        width: 5%;
+        
+    }
 
     .AdicionarProduto{
     position: relative;
@@ -37,34 +46,14 @@ export const CardSttyle = styled.dialog`
         }
     }
 
-     .AdicionarCodigo{
-    position: relative;
-
-        display: flex;
-        padding: 16px;
-         margin: 4px; 
-        margin-left:18px;
-        width:  240px;
-        height: 34PX;
-        font-size: 18px;
-        border-radius:10px;
-        background-color: #c5c5c5;
-        border: 1px solid #000;
-        color: #000;
-        &::placeholder {
-            color: #444;
-        }
-     }
+ 
 
     .alerta{
     position: relative;
-
         display: flex;
-        
         padding: 16px;
         margin: 4px; 
         margin-left: 18px;
-        
         width:  240px;
         height: 34PX;
         font-size: 18px;
@@ -80,7 +69,6 @@ export const CardSttyle = styled.dialog`
 
     .descricao{
     position: relative;
-
         display: flex;
         margin-top: 1000px;
         margin-left: 18px;
@@ -90,14 +78,11 @@ export const CardSttyle = styled.dialog`
 
     .quantidade{
     position: relative;
-
         display: flex;
         align-items: botton;
     justify-content: botton ;
         padding: 16px;
-      
          margin-left:1300px;
-         margin-top : 0px;
         width:  240px;
         height: 34PX;
         font-size: 18px;
@@ -112,7 +97,6 @@ export const CardSttyle = styled.dialog`
 
     .compra{
     position: relative;
-
         display: flex;
         align-items: botton;
     justify-content: botton ;
@@ -133,6 +117,7 @@ export const CardSttyle = styled.dialog`
     }
 
     .venda{ 
+        position: relative;
         display: flex;
         padding: 16px;
          margin-left:1300px;
@@ -165,13 +150,9 @@ export const CardSttyle = styled.dialog`
 
     .Adicionar-referencia{
         background:#14AC10;
-        align-items: center;
-        top: 90px;
-        left: 360px;
         padding: 10px;
-        font-size: 24px;
         color: #000;
-      font-size: 10px;
+      font-size: 19px;
       border-radius:5px;
       border-radius:50px;
     }

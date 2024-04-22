@@ -23,7 +23,7 @@ export function CardAdicionar({ showCard, onClose }) {
     };
 
 
-    
+
     const {
         handleSubmit,
         reset,
@@ -36,7 +36,7 @@ export function CardAdicionar({ showCard, onClose }) {
         resolver: yupResolver(CaixaSchema),
         mode: 'onChange',
     });
-    
+
     const onSubmit = async (_data) => {
         const {
             produto,
@@ -46,7 +46,7 @@ export function CardAdicionar({ showCard, onClose }) {
             descricao,
             data,
         } = _data;
-        
+
         const { success, result } = await registerCaixa(user.token,
             produto,
             quantidade,
@@ -55,36 +55,36 @@ export function CardAdicionar({ showCard, onClose }) {
             descricao,
             data,);
 
-            if (success) {
+        if (success) {
 
-                onClose();
+            onClose();
         }
         console.log(result);
     };
 
     useEffect(() => {
         if (!showCard) {
-            
+
             setcodigo([])
             setValor([valor])
             reset();
-            
+
         }
     }, [showCard]);
-    
-  
- 
-   const Alerta  =( ) => {
-       
 
-   };
-   const Quantidade = ( ) => {
-    
-   }
 
-   if( Alerta > Quantidade){
-    return alert("Alerta e maior que a quantidade ")
-   }
+
+    const Alerta = () => {
+
+
+    };
+    const Quantidade = () => {
+
+    }
+
+    if (Alerta > Quantidade) {
+        return alert("Alerta e maior que a quantidade ")
+    }
 
 
 
@@ -98,18 +98,18 @@ export function CardAdicionar({ showCard, onClose }) {
 
                 <input className='AdicionarProduto' type="text" placeholder=" Produto  Obrigatorio" {...register('produto')} />
 
+                <div className='scroll'>
+                    Codigo:  Obrigatorio <button className='Adicionar-referencia' onClick={handleAddPeca}>+</button>
 
-                Codigo:  Obrigatorio <button className='Adicionar-referencia' onClick={handleAddPeca}>+</button>
-
-                {
-                    codigo.map((cod, index) => (
-                        <div key={index}>
-                            <input className='Referencia' type="text" placeholder="codigo : " {...register(`codigo[${cod}].codigo`)} />
-                        </div>
-                    ))
-                }
-
-                <input className='quantidade' type="number" id={Quantidade}  placeholder=" quantidade:  Obrigatorio" {...register('quantidade')} />
+                    {
+                        codigo.map((cod, index) => (
+                            <div key={index}>
+                                <input className='Referencia' type="text" placeholder="codigo : " {...register(`codigo[${cod}].codigo`)} />
+                            </div>
+                        ))
+                    }
+                </div>
+                <input className='quantidade' type="number" id={Quantidade} placeholder=" quantidade:  Obrigatorio" {...register('quantidade')} />
 
                 {
                     valor.map((cod, index) => (
@@ -120,7 +120,7 @@ export function CardAdicionar({ showCard, onClose }) {
                     ))
                 }
 
-                <input className='alerta'id={Alerta}  type="number" placeholder=" Alerta:  Obrigatorio" />
+                <input className='alerta' id={Alerta} type="number" placeholder=" Alerta:  Obrigatorio" />
 
                 DESCRIÇÃO DE PRODUTO :
 

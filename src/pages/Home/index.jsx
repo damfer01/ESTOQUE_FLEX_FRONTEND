@@ -10,8 +10,6 @@ import { VisualCaixa } from "../../components/Card/VisualCaixa/VisualCaixa";
 import { PesquisaStyle } from "../../components/BarraDePesquisa/Pesquisa";
 import { useStore } from "../../store";
 import Patrocinio from "../../components/ButtonPatrocinio/Patrocinio";
-import { Type } from "../../components/Type";
-import { ArraySchema } from "yup";
 
 
 
@@ -104,19 +102,20 @@ export default function Home() {
         {
           caixas.filter(
             caixa =>
-            caixa.produto.toLocaleLowerCase().includes(search.toLocaleLowerCase()) || 
-            caixa.descricao.toLocaleLowerCase().includes(search.toLocaleLowerCase()) ||
-          caixa.codigo.toLocaleLowerCase().includes(search.toLocaleLowerCase()) ||
-          caixa.data.toLocaleLowerCase().includes(search.toLocaleLowerCase()) 
+              caixa.produto.toLocaleLowerCase().includes(search.toLocaleLowerCase()) ||
+              caixa.descricao.toLocaleLowerCase().includes(search.toLocaleLowerCase()) ||
+              caixa.codigo.some((codigos) => codigos.codigo.includes(search))
           ).map((caixa) => (
+
             <CardLocal onClick={() => setCaixa(caixa)}
 
               {...caixa}
               key={caixa._id}
             />  /* AQUI VAI APARECE OS PRODUTOS  */
           ))
-        } 
-       
+        }
+
+
       </GridView>
 
       <VisualCaixa caixa={caixa} onClose={() => setCaixa(null)} />  {/* aqui vai ser o CARD_EDITAR */}

@@ -1,9 +1,9 @@
 
 import PartsBox from '../../assets/PartsBox.svg';
 import { Input } from "../../components/Input";
-import {useForm} from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 
-import {yupResolver} from '@hookform/resolvers/yup';
+import { yupResolver } from '@hookform/resolvers/yup';
 import loginSchema from "../../schema/loginSchema";
 import { Spacing } from "../../components/Spacing";
 import { Logo } from '../../components/logo';
@@ -12,7 +12,7 @@ import { Main } from '../../components/Main/main';
 import { Button } from "../../components/Button";
 import { useNavigate } from 'react-router-dom';
 import { useStore } from '../../store/index';
- import { login } from '../../service/authServices';
+import { login } from '../../service/authServices';
 
 
 
@@ -22,68 +22,68 @@ export default function Login() {
     const {
         user,
 
-    }=useStore();
+    } = useStore();
 
     const {
         handleSubmit,
         control,
-        formState:{
+        formState: {
             isValid,
         }
-        
+
 
     } = useForm({
         resolver: yupResolver(loginSchema),
-       mode: 'onChange', 
-       defaultValues:{
-        usuario : "pratsbox",
-        password : "28102003",
-       }
+        mode: 'onChange',
+        defaultValues: {
+            usuario: "pratsbox",
+            password: "28102003",
+        }
     });
 
-    const onSubmit = async (data) =>{
-        const{
+    const onSubmit = async (data) => {
+        const {
             usuario,
             password,
-        }= data;
+        } = data;
 
-        const {success , message, result} = await login(usuario, password);
+        const { success, message, result } = await login(usuario, password);
 
         alert(message);
 
-        if(success){
+        if (success) {
             user.setUserData({
                 name: result.usuario,
                 token: result.token,
             });
 
             navigate('/produto');
-        } 
-        
+        }
+
     };
-    
-    return(
+
+    return (
         <Main>
             <Logo src={PartsBox} />
 
             <Form onSubmit={handleSubmit(onSubmit)}>
                 <Spacing $bottom={20}>
-                <Input
-                control={control}
-                name='usuario'
-                label='usuario'
-                
-                />
+                    <Input
+                        control={control}
+                        name='usuario'
+                        label='usuario'
+
+                    />
                 </Spacing>
 
                 <Spacing $bottom={36}>
-                <Input
-                control={control}
-                name='password'
-                label='senha'
-                type='password'
-                
-                />
+                    <Input
+                        control={control}
+                        name='password'
+                        label='senha'
+                        type='password'
+
+                    />
                 </Spacing>
                 <Actions>
                     <Spacing $bottom={24}>
@@ -91,10 +91,10 @@ export default function Login() {
                     </Spacing>
 
                     <Spacing>
-                        <Button  onClick={() => navigate('/register')} type='button' $color="primaryDark">CADASTRA</Button>
+                        <Button onClick={() => navigate('/register')} type='button' $color="primaryDark">CADASTRA</Button>
                     </Spacing>
                 </Actions>
-                
+
             </Form>
         </Main>
     );
