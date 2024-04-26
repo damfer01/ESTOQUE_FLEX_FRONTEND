@@ -2,8 +2,8 @@ import styled from "styled-components";
 
 export const VisualSttyle = styled.dialog`
     position: absolute;
-    display: grid ;
-    flex-direction: column;
+    display: flex ;
+    flex-direction:column ;
     top: 0;
     right: 0;
     bottom: 0;
@@ -39,6 +39,22 @@ export const VisualSttyle = styled.dialog`
         }
     }
 
+    .produto{
+        background-color:#D9D9D9;
+        display: flex;
+        padding: none;
+         font-size: 16px;
+        border-radius:10px;
+        border: 1px solid #000;
+        border-color: rgb(147 197 253);
+         margin: 5px;
+        align-items: center;
+        border-color: #000;
+        justify-content: center ;
+        width:  240px;
+        height: 34PX;
+    }
+
      .data{
         background-color:#D9D9D9;
         display: flex;
@@ -55,21 +71,38 @@ export const VisualSttyle = styled.dialog`
         height: 34PX;
      }
 
-     .pecas{
+     .descricao{
         background-color:#D9D9D9;
         display: flex;
-        padding: 16px;
+        padding: var();
          font-size: 16px;
         border-radius:10px;
         border: 1px solid #000;
         border-color: rgb(147 197 253);
-         margin: 2px;
+         margin: 5px;
         align-items: center;
         border-color: #000;
         justify-content: center ;
         width:  240px;
         height: 34PX;
 
+    }
+
+    .quantidade{
+        background-color:#D9D9D9;
+        display: flex;
+        padding: none;
+         font-size: 16px;
+        border-radius:10px;
+        border: 1px solid #000;
+        border-color: rgb(147 197 253);
+         margin: 5px;
+        align-items: center;
+        border-color: #000;
+        justify-content: center ;
+        width:  240px;
+        height: 34PX;
+ 
     }
 
      div > .foco{
@@ -95,6 +128,7 @@ export const VisualSttyle = styled.dialog`
         align-items: center;
       justify-content: center;
       padding: 8PX;
+      font-size: 16px;
       color: #FFF;
        background:#AD130C;
        border-color: rgb(147 197 253);
@@ -106,11 +140,9 @@ export const VisualSttyle = styled.dialog`
 
      .editar{
          background-color:#CDDA38;
-         display: grid;
+         display: flex;
          border-radius: 10px;
-         top: 10px;
-         left: 100px;
-         padding: 3px;
+         padding: 8px;
          color: #FFF;
          font-size: 16px;
          border: 1px solid #000;

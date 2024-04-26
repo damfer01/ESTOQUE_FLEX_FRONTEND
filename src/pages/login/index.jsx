@@ -63,8 +63,8 @@ export default function Login() {
     };
 
     return (
-        <Main>
-            <Logo src={PartsBox} />
+        <Main  >
+            <Logo rc={PartsBox} />
 
             <Form onSubmit={handleSubmit(onSubmit)}>
                 <Spacing $bottom={20}>
@@ -96,6 +96,7 @@ export default function Login() {
                 </Actions>
 
             </Form>
+            
         </Main>
     );
 };

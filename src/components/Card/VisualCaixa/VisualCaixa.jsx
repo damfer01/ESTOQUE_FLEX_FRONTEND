@@ -87,10 +87,10 @@ export function VisualCaixa({ caixa, onClose }) {
     <VisualSttyle open   >
 
       <button onClick={onClose}><X /></button>
-      <div>
-        <span>produto :{caixa.produto}</span>
-      </div >
-      <span className="pecas">quantidade :{caixa.quantidade}</span>
+     
+        <span className="produto">produto :{caixa.produto}</span>
+
+      <span className="quantidade">quantidade :{caixa.quantidade}</span>
       {
         caixa.codigo.map((cod, index) => (
           <div   >
@@ -107,7 +107,7 @@ export function VisualCaixa({ caixa, onClose }) {
         ))
       }
       <span className="data">{format(caixa.data, "dd/MM/yyyy")}</span>
-      <span className="pecas">descricao :{caixa.descricao}</span>
+      <span className="descricao">descricao :{caixa.descricao}</span>
 
       <button className="editar" onClick={updateProduto}>editar</button>
 

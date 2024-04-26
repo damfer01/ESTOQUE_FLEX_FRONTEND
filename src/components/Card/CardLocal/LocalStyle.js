@@ -27,6 +27,14 @@ export const LocalStyle = styled.button`
   span{
     margin:3px;
   }
+
+  .data{
+    margin-top: 40px;
+    margin-left: 130px;
+
+    font-size: 16px;
+    font-weight :600;
+  }
     
 
   

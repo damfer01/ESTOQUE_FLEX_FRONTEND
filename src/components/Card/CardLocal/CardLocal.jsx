@@ -7,7 +7,7 @@ export function CardLocal({ onClick, produto, quantidade, data }) {
         <LocalStyle onClick={onClick}>
             <span>{produto}</span>
             <span>{quantidade}</span>
-            <span>{format(data, " dd/MM/yyyy ")}</span>
+            <span className="data">{format(data, " dd/MM/yyyy ")}</span>
         </LocalStyle>
     )
 }

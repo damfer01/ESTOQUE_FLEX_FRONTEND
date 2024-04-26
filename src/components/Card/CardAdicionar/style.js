@@ -15,8 +15,21 @@ export const CardSttyle = styled.dialog`
     font-size: 24px;
     transition: all .2s;
     background-color: #00000044;
-
-
+    
+    
+    
+    form > .foco{
+        background-color:#5389A0;
+    }
+    & > form {
+        overflow: auto;
+        background-color: #33415544;
+        border: 1px solid  #818cf8;
+        border-radius:4px;
+        width: 100%;
+        height: 100%;
+        
+    }
     .scroll{
         display: flex;
         flex-direction: column;
@@ -34,6 +47,7 @@ export const CardSttyle = styled.dialog`
         padding: 16px;
          margin: 4px; 
         margin-left:18px;
+        margin-top: 50px;
         width:  240px;
         height: 34PX;
         font-size: 18px;
@@ -52,7 +66,7 @@ export const CardSttyle = styled.dialog`
     position: relative;
         display: flex;
         padding: 16px;
-        margin: 4px; 
+        margin: 10px; 
         margin-left: 18px;
         width:  240px;
         height: 34PX;
@@ -68,23 +82,20 @@ export const CardSttyle = styled.dialog`
     }
 
     .descricao{
-    position: relative;
         display: flex;
-        margin-top: 1000px;
+        margin: 5px;
         margin-left: 18px;
         width: 500px;
         height: 150PX;
     }
 
     .quantidade{
-    position: relative;
-        display: flex;
-        align-items: botton;
-    justify-content: botton ;
+        align-items: left;
+    justify-content: left ;
         padding: 16px;
-         margin-left:1300px;
         width:  240px;
         height: 34PX;
+        margin-left:18px;
         font-size: 18px;
         border-radius:10px;
         background-color: #c5c5c5;
@@ -96,14 +107,13 @@ export const CardSttyle = styled.dialog`
     }
 
     .compra{
-    position: relative;
         display: flex;
         align-items: botton;
     justify-content: botton ;
         padding: 16px;
         margin: 4px;
-         margin-left:1300px;
          margin-top : 10px;
+         margin-left:18px;
         width:  240px;
         height: 34PX;
         font-size: 18px;
@@ -120,8 +130,8 @@ export const CardSttyle = styled.dialog`
         position: relative;
         display: flex;
         padding: 16px;
-         margin-left:1300px;
          margin-top : 0px;
+         margin-left:18px;
         width:  240px;
         height: 34PX;
         font-size: 18px;
@@ -155,6 +165,7 @@ export const CardSttyle = styled.dialog`
       font-size: 19px;
       border-radius:5px;
       border-radius:50px;
+      margin-left:18px;
     }
 
     .Referencia{
@@ -176,19 +187,6 @@ export const CardSttyle = styled.dialog`
     
     
     
-    form > .foco{
-        background-color:#5389A0;
-    }
-
-    & > form {
-        overflow: auto;
-        background-color: #33415544;
-        border: 1px solid  #818cf8;
-        border-radius:4px;
-        width: 90%;
-        height: 98%;
-        
-    }
 
     
     
@@ -198,7 +196,6 @@ export const CardSttyle = styled.dialog`
          display: flex;
          font-size: 24px;
          top: 0px;
-         left: 1530px;
          padding: 10px;
          border-color: #000;
          border-radius:50px;
