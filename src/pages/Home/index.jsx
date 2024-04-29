@@ -83,12 +83,12 @@ export default function Home() {
           type="submit"
           onClick={() => setShowCard(true)}
         >
-          adicionar +
+          Adicionar
         </Button>
 
 
         <PesquisaStyle >
-          <input placeholder='Busque :' onChange={(e) => setSearch(e.target.value)}></input>
+          <input placeholder='Pesquisar produto:' onChange={(e) => setSearch(e.target.value)}></input>
         </PesquisaStyle >
 
 
@@ -96,7 +96,7 @@ export default function Home() {
       </SelectGridView>
 
 
-      VISUAL PRODUTOS :  {/* DAQUI PRA BAIXO VAI SER O VISUAL DOS PROSDUTOS  */}
+      PRODUTOS CADASTRADOS :  {/* DAQUI PRA BAIXO VAI SER O VISUAL DOS PROSDUTOS  */}
 
       <GridView  >
         {

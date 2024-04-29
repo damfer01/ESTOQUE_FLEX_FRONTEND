@@ -1,53 +1,74 @@
 import styled from "styled-components";
 
-export const CardSttyle = styled.dialog`
-    position: absolute;
+    export const CardSttyle = styled.dialog`
     display: flex;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
     align-items: center;
-    justify-content: center ;
+    justify-content: center;
     width: 100%;
-    height: 100%;
+    height: 92%;
     border: none;
     font-size: 24px;
     transition: all .2s;
-    background-color: #00000044;
+    background-color: #00000999;
+    overflow: hidden;
     
     
+    form {
+        display: flex;
+        flex-direction: column;
+        padding: 15px;
+        margin-top: 10rem;
+    }
     
     form > .foco{
         background-color:#5389A0;
     }
     & > form {
-        overflow: auto;
-        background-color: #33415544;
-        border: 1px solid  #818cf8;
-        border-radius:4px;
-        width: 100%;
-        height: 100%;
-        
+        overflow: hidden;
+        background-color: transparent;
+        border-radius: 10px;
+        width: 40rem;
+        height: 45rem;
     }
     .scroll{
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         align-items: left;
-        justify-content: left ;
+        justify-content: space-between;
         border: none;
         font-size: 24px;
-        width: 5%;
-        
+        width: 100%;
+        height: 15rem;
+    
+    .left{
+        margin-top: 5px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .rithg {
+        display: flex;
+        justify-content: left;
+        align-items: center;
+        justify-content: l;
+        flex-direction: column;
+        margin-right: 45px;
+    }
+
+    form > .low {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
     }
 
     .AdicionarProduto{
-    position: relative;
+        position: relative;
         display: flex;
         padding: 16px;
-         margin: 4px; 
+         margin-bottom: 4px; 
         margin-left:18px;
-        margin-top: 50px;
         width:  240px;
         height: 34PX;
         font-size: 18px;
@@ -66,7 +87,7 @@ export const CardSttyle = styled.dialog`
     position: relative;
         display: flex;
         padding: 16px;
-        margin: 10px; 
+        margin: 4px; 
         margin-left: 18px;
         width:  240px;
         height: 34PX;
@@ -81,10 +102,9 @@ export const CardSttyle = styled.dialog`
  
     }
 
-    .descricao{
+    form > .low > .descricao{
         display: flex;
-        margin: 5px;
-        margin-left: 18px;
+        margin: 4px 4px 20px 60px;
         width: 500px;
         height: 150PX;
     }
@@ -112,7 +132,6 @@ export const CardSttyle = styled.dialog`
     justify-content: botton ;
         padding: 16px;
         margin: 4px;
-         margin-top : 10px;
          margin-left:18px;
         width:  240px;
         height: 34PX;
@@ -145,34 +164,42 @@ export const CardSttyle = styled.dialog`
     }
 
     #excluir{
+        position: absolute;
+        left: 58rem;
+        top: 5px;
         background:#AD130C;
         display: flex;
         color: #fff;
       align-items: center;
       justify-content: center;
-      margin: 5px; 
       padding: 3px;
       font-size: 10px;
-      border-radius:5px;
+      border-radius:50%;
+      height: 40px;
+      width: 40px;
     }
 
 
 
     .Adicionar-referencia{
-        background:#14AC10;
-        padding: 10px;
-        color: #000;
-      font-size: 19px;
-      border-radius:5px;
-      border-radius:50px;
-      margin-left:18px;
+      display: flex;
+      position: absolute;
+      right: 58rem;
+      align-items: center;
+      justify-content: center;
+      background:#14AC10;
+      color: #000;
+      width: 40px;
+      height: 40px;
+      border-radius: 150px;
+      font-size: 15px;
+      margin: 0 0 20px 15px;
     }
 
     .Referencia{
         display: flex;
         padding: 16px;
-         margin: 4px; 
-        margin-left:18px;
+        margin: 4px; 
         width:  240px;
         height: 34PX;
         font-size: 18px;
@@ -190,16 +217,24 @@ export const CardSttyle = styled.dialog`
 
     
     
-    form >.comfirmar{
+    form > .low > .comfirmar {
          background-color:#14AC10;
          position:relative;
          display: flex;
          font-size: 24px;
          top: 0px;
+         left: 170px;
          padding: 10px;
          border-color: #000;
          border-radius:50px;
          border: 1px solid #000;
+         width: 20rem;
       
+     }
+
+     form > .low > .desc {
+        position: relative;
+        left: 10rem;
+        color: white;
      }
     `;

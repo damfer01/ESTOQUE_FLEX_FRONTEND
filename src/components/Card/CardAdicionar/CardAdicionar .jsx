@@ -87,8 +87,6 @@ export function CardAdicionar({ showCard, onClose }) {
     }
 
 
-
-
     return showCard ? (
         <CardSttyle open  >
 
@@ -96,37 +94,43 @@ export function CardAdicionar({ showCard, onClose }) {
 
                 <button id='excluir' onClick={onClose}><X /></button>
 
-                <input className='AdicionarProduto' type="text" placeholder=" Produto  Obrigatorio" {...register('produto')} />
 
                 <div className='scroll'>
-                    Codigo:  Obrigatorio <button className='Adicionar-referencia' onClick={handleAddPeca}>+</button>
+                    <div className='left'>
+                <input className='AdicionarProduto' type="text" placeholder=" Produto " {...register('produto')} />
+                        <input className='quantidade' type="number" id={Quantidade} placeholder=" quantidade:  Obrigatorio" {...register('quantidade')} />
 
-                    {
-                        codigo.map((cod, index) => (
-                            <div key={index}>
-                                <input className='Referencia' type="text" placeholder="codigo : " {...register(`codigo[${cod}].codigo`)} />
-                            </div>
-                        ))
-                    }
+                        {
+                            valor.map((cod, index) => (
+                                <div key={index._id} >
+                                    <input className='compra' type="number" placeholder=" compra:  Obrigatorio " {...register(`valor[${cod}].compra`)} />
+                                    <input className='venda' type="number" placeholder="venda:  Obrigatorio" {...register(`valor[${cod}].venda`)} />
+                                </div>
+                            ))
+                        }
+
+                        <input className='alerta' id={Alerta} type="number" placeholder=" Alerta:  Obrigatorio" />
+                    </div>
+                    <button className='Adicionar-referencia' onClick={handleAddPeca}>+</button>
+
+                    <div className='rigth'>
+                        {
+                            codigo.map((cod, index) => (
+                                <div key={index}>
+                                    <input className='Referencia' type="text" placeholder="codigo : " {...register(`codigo[${cod}].codigo`)} />
+                                </div>
+                            ))
+                        }
+                    </div>
                 </div>
-                <input className='quantidade' type="number" id={Quantidade} placeholder=" quantidade:  Obrigatorio" {...register('quantidade')} />
 
-                {
-                    valor.map((cod, index) => (
-                        <div key={index._id} >
-                            <input className='compra' type="number" placeholder=" compra:  Obrigatorio " {...register(`valor[${cod}].compra`)} />
-                            <input className='venda' type="number" placeholder="venda:  Obrigatorio" {...register(`valor[${cod}].venda`)} />
-                        </div>
-                    ))
-                }
-
-                <input className='alerta' id={Alerta} type="number" placeholder=" Alerta:  Obrigatorio" />
-
-                DESCRIÇÃO DE PRODUTO :
+                <div className='low'>
+                <span className='desc'>DESCRIÇÃO DO PRODUTO : </span>
 
                 <input className='descricao' type='text'  {...register('descricao')} />
 
-                <button disabled={!isValid} type='submit' className="comfirmar">confirma</button>
+                <button disabled={!isValid} type='submit' className="comfirmar">Confirmar</button>
+                </div>
             </form>
 
         </CardSttyle>

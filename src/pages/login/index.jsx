@@ -2,7 +2,6 @@
 import PartsBox from '../../assets/PartsBox.svg';
 import { Input } from "../../components/Input";
 import { useForm } from 'react-hook-form';
-
 import { yupResolver } from '@hookform/resolvers/yup';
 import loginSchema from "../../schema/loginSchema";
 import { Spacing } from "../../components/Spacing";
@@ -13,6 +12,8 @@ import { Button } from "../../components/Button";
 import { useNavigate } from 'react-router-dom';
 import { useStore } from '../../store/index';
 import { login } from '../../service/authServices';
+import facebook from "../../assets/facebook.svg"
+import google from "../../assets/google.svg"
 
 
 
@@ -71,7 +72,7 @@ export default function Login() {
                     <Input
                         control={control}
                         name='usuario'
-                        label='usuario'
+                        label='Usuário'
 
                     />
                 </Spacing>
@@ -80,21 +81,25 @@ export default function Login() {
                     <Input
                         control={control}
                         name='password'
-                        label='senha'
+                        label='Senha'
                         type='password'
 
                     />
-                </Spacing>
+                </Spacing> 
                 <Actions>
                     <Spacing $bottom={24}>
                         <Button disabled={!isValid} $color="secondary" type='subnit'>ENTRAR</Button>
                     </Spacing>
 
                     <Spacing>
-                        <Button onClick={() => navigate('/register')} type='button' $color="primaryDark">CADASTRA</Button>
+                        <Button onClick={() => navigate('/register')} type='button' $color="primaryDark">ME CADASTRAR</Button>
                     </Spacing>
                 </Actions>
-
+                <Spacing>
+                    <Logo className='facebook' src={facebook}/>
+                    <Logo className='google' src={google}/>
+                </Spacing>
+   
             </Form>
             
         </Main>

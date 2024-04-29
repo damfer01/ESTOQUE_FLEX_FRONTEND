@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const LocalStyle = styled.button`
 
      background-color: #334155;
-    display:  flex;
+    display: flex;
     flex-direction: column;
     padding: 16px;
     border: none;
@@ -11,6 +11,7 @@ export const LocalStyle = styled.button`
     color: #FFF;
     font-size: 16px;
     font-weight :600;
+    width: 100%;
     
     transition: all .2s;
 
@@ -30,8 +31,7 @@ export const LocalStyle = styled.button`
 
   .data{
     margin-top: 40px;
-    margin-left: 130px;
-
+    margin-left: 50rem;
     font-size: 16px;
     font-weight :600;
   }

@@ -11,8 +11,8 @@ export const InputRow = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  width: 100%;
-  height: 52px;
+  width: 50rem;
+  height: 70px;
   overflow: hidden;
   border: solid 1px ${({ theme, $error }) => $error
     ? theme.colors.danger
