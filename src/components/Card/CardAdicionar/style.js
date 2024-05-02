@@ -20,10 +20,11 @@ import styled from "styled-components";
         margin-top: 10rem;
     }
     
-    form > .foco{
+    form > .foco{   padding: flex;
         background-color:#5389A0;
     }
     & > form {
+        padding: flex;
         overflow: hidden;
         background-color: transparent;
         border-radius: 10px;
@@ -41,6 +42,7 @@ import styled from "styled-components";
         height: 15rem;
     
     .left{
+        padding: flex;
         margin-top: 5px;
         display: flex;
         flex-direction: column;
@@ -105,11 +107,14 @@ import styled from "styled-components";
     form > .low > .descricao{
         display: flex;
         margin: 4px 4px 20px 60px;
-        width: 500px;
-        height: 150PX;
+        width: 80%;
+        height: 96%;
+
+        
     }
 
     .quantidade{
+        padding: flex;
         align-items: left;
     justify-content: left ;
         padding: 16px;
@@ -150,7 +155,6 @@ import styled from "styled-components";
         display: flex;
         padding: 16px;
          margin-top : 0px;
-         margin-left:18px;
         width:  240px;
         height: 34PX;
         font-size: 18px;
@@ -165,6 +169,7 @@ import styled from "styled-components";
 
     #excluir{
         position: absolute;
+        padding: flex;
         left: 58rem;
         top: 5px;
         background:#AD130C;
@@ -184,6 +189,7 @@ import styled from "styled-components";
     .Adicionar-referencia{
       display: flex;
       position: absolute;
+      padding: flex;
       right: 58rem;
       align-items: center;
       justify-content: center;
@@ -195,7 +201,7 @@ import styled from "styled-components";
       font-size: 15px;
       margin: 0 0 20px 15px;
     }
-
+    
     .Referencia{
         display: flex;
         padding: 16px;
@@ -203,6 +209,7 @@ import styled from "styled-components";
         width:  240px;
         height: 34PX;
         font-size: 18px;
+        overflow-y: scroll;
         border-radius:10px;
         background-color: #c5c5c5;
         border: 1px solid #000;
@@ -219,7 +226,7 @@ import styled from "styled-components";
     
     form > .low > .comfirmar {
          background-color:#14AC10;
-         position:relative;
+        padding: flex;
          display: flex;
          font-size: 24px;
          top: 0px;
@@ -233,8 +240,13 @@ import styled from "styled-components";
      }
 
      form > .low > .desc {
-        position: relative;
+        position: flex;
+        padding: flex;
         left: 10rem;
         color: white;
      }
+
+
+
+     
     `;

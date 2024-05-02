@@ -103,8 +103,8 @@ export default function Home() {
           caixas.filter(
             caixa =>
               caixa.produto.toLocaleLowerCase().includes(search.toLocaleLowerCase()) ||
-              caixa.descricao.toLocaleLowerCase().includes(search.toLocaleLowerCase()) ||
-              caixa.codigo.some((codigos) => codigos.codigo.includes(search))
+              caixa.codigo.some((cod) => cod.codigo.includes(search)) ||
+              caixa.descricao.toLocaleLowerCase().includes(search.toLocaleLowerCase()) 
           ).map((caixa) => (
 
             <CardLocal onClick={() => setCaixa(caixa)}

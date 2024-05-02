@@ -57,7 +57,7 @@ export function VisualCaixa({ caixa, onClose }) {
 
   async function updateProduto() {
     try {
-      await api.put(`/produto/${caixa._id}`, {
+      await api.put(`/produto/:${caixa._id}`, {
         headers: {
           Authorization: `Bearer ${user.token}`,
         }

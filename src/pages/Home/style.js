@@ -36,5 +36,5 @@ export const GridView = styled.div `
     flex:1;
     padding: 20px; 
     padding-top: 16px;
-    overflow: hidden ;    
+    overflow: scroll ;    
     `
